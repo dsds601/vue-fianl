@@ -27,6 +27,17 @@
 ### axios 구조화
 * src/api 안에 axios 관련 데이터를 구조화하여 사용합니다.
 
+### computed
+* Vue data 변화시 발생하는 함수를 정의 하는곳
+  ~~~
+  // vue 인스턴스 내부에 username이 변경될때마다 isUsernameValid 함수 실행됨
+  computed: {
+    isUsernameValid() {
+      return validateEmail(this.username);
+    },
+  },
+  ~~~
+
 ### vue
 1. router-link
    ~~~
@@ -46,3 +57,10 @@
     },
    ~~~~
    * @submit.prevent :submit 버튼에 대한 이벤트 x prevent @ v-??
+3. v-bind:속성
+   * v-bind를 이용해 html속성애 따라 활성화 시킬 수 있다.
+   ~~~
+   : <- v-bind 축약어 FALSE일때 disabled됨
+   :disabled="!isUsernameValid || !password"
+   ~~~
+   
